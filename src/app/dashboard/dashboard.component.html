@@ -1,0 +1,15 @@
+<main>
+    <div class="sidebar">
+        <a class="mylogo" [routerLink]="['/dashboard']">Test Site</a>
+        <app-leftnavigation></app-leftnavigation>
+    </div>
+    <div class="rightpart">
+        <app-header></app-header>
+        <div class="contentpart">
+            <router-outlet></router-outlet>
+        </div>        
+        <app-footer></app-footer>
+    </div>
+</main>
+
+

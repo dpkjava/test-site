@@ -1,0 +1,34 @@
+main{
+    font-size: 0;
+    color: #000;
+}
+.sidebar{
+    width: 200px;
+    display: inline-block;
+    height: 100vh;
+    vertical-align: top;
+    font-size: 16px;
+    border-right: 1px solid #ddd;
+    background: #f1f1f1;
+}
+.rightpart{
+    width: calc(100% - 200px);
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+}
+.mylogo{
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    color: #000;
+}
+.mylogo:hover{
+    color: #F1A400;
+}
+.contentpart{
+    padding: 15px;
+    height: calc(100vh - 120px);
+}

@@ -1,0 +1,14 @@
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h1>Login</h1>        
+      <form #f="ngForm" (ngSubmit)="onSubmitlogin(f)">  
+        <label>Username</label>
+        <input type="text" [(ngModel)]="user.name" name="name" #u="ngModel" required>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="user.password" name="password" #p="ngModel" required>
+        <p class="errormsg" *ngIf="error">{{invalidMsg}}</p>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>

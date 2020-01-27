@@ -1,0 +1,36 @@
+header{
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    height: 57px;
+
+}
+.userp{
+    font-size: 14px;
+    position: relative;
+    padding: 8px;
+}
+.userp ul{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 150px;
+    border: 1px solid #ccc;
+    background: #fff;
+    display: none;
+}
+.userp ul li{
+    display: block;
+}
+.userp ul li a{
+    color: #000;
+    font-size: 14px;
+    display: block;
+    padding:5px 10px;
+}
+.userp ul li a:hover{
+    color: #F1A400 !important;
+}
+.userp:hover ul{
+    display: block;
+}

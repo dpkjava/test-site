@@ -1,0 +1,21 @@
+
+.sidebarnav ul{
+    width: 100%;
+}
+.sidebarnav ul li{
+    display: block;
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+}
+.sidebarnav ul li a{
+    color: #000000;
+    font-size: 16px;
+    display: block;
+    padding: 5px 0;
+}
+.sidebarnav ul li a.active{
+    color: #F1A400;
+}
+.sidebarnav ul li a:hover{
+    color: #F1A400;
+}
