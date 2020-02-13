@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewEncapsulation , HostListener } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoggeduserService } from '../../services/loggeduser.service';
+import { Observable, observable, Observer } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,16 +11,45 @@ import { LoggeduserService } from '../../services/loggeduser.service';
 })
 export class HeaderComponent implements OnInit {  
   username: any;
-  constructor(private router : Router, private auth: LoggeduserService) { }
+  usernamecurrent: any;
+  time = Date;
+  currtime:any;
+  d:any = new Date();
+  h:number = this.d.getHours();
+  m:number = this.d.getMinutes();
+  s:number = this.d.getSeconds();
+  i:number;
+  constructor(private router : Router, private auth: LoggeduserService) { 
+  }
 
   ngOnInit() {
-    this.username = this.auth.loginUser;
+    this.username = this.auth.users.find(i => i.email == sessionStorage.getItem('username'));
+    console.log(this.username);
+    this.usernamecurrent = this.username.firstName+' '+this.username.lastName;
   }
+  ngAfterContentInit(){
 
-  logout(){
-    this.auth.setLogout();
-    this.router.navigate(['/login']);
-    sessionStorage.clear();
+    setInterval(()=> {
+      if(this.s == 59){
+        this.m = this.m + 1;
+        this.s = 0;
+        if(this.m == 59){
+          this.h = this.h + 1;
+          this.m = 0;
+          if(this.h == 23){
+            this.h = 0;
+          }
+        }
+      } else{
+        this.s = this.s + 1;
+      }
+      this.currtime = this.h+':'+this.m+':'+this.s;
+    }, 1000);
   }
+  logout(){  
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
+  
 
 }

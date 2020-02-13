@@ -1,8 +1,11 @@
 <header>
     <a class="navicon"><span></span><span></span><span></span></a>
-    <div class="userp float-right">
-        Hi, Deepak Kumar
+    {{ currtime }} <div class="userp float-right">
+        Hi, {{usernamecurrent}} &nbsp; <img src="../../../assets/images/download.png" alt="">
         <ul class="userp">
+            <li>
+                <a>My Profile</a>
+            </li>
             <li>
                 <a (click)="logout()">Logout</a>
             </li>

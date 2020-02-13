@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientServices } from '../app/services/httpclients';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './dashboard/header/header.component';
 import { FooterComponent } from './dashboard/footer/footer.component';
@@ -13,11 +14,12 @@ import { AboutComponent } from './dashboard/about/about.component';
 import { UserComponent } from './dashboard/user/user.component';
 import { AddressComponent } from './dashboard/address/address.component';
 import { LeftnavigationComponent } from './dashboard/leftnavigation/leftnavigation.component';
+import { from } from 'rxjs';
+import { AdduserComponent } from './dashboard/adduser/adduser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
@@ -25,14 +27,19 @@ import { LeftnavigationComponent } from './dashboard/leftnavigation/leftnavigati
     AboutComponent,
     UserComponent,
     AddressComponent,
-    LeftnavigationComponent
+    LeftnavigationComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [
+  { provide: HTTP_INTERCEPTORS , useClass : HttpClientServices, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,33 +1,23 @@
-<h3>Address</h3>
-<table>
+<h3>All Users List</h3>
+<table class="table">
+  <thead>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
-      <th>Phone No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Profession</th>
+      <th scope="col">Password</th>
     </tr>
-    <tr>
-      <td>Peter</td>
-      <td>Griffin</td>
-      <td>peter.griffin@yourdomain.com</td>
-      <td>9090909090</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.firstName + ' ' + user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.mobile}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.profession}}</td>
+      <td>{{user.password}}</td>
     </tr>
-    <tr>
-      <td>Lois</td>
-      <td>Griffin</td>
-      <td>lois.griffin@yourdomain.com</td>
-      <td>9898989898</td>
-    </tr>
-    <tr>
-      <td>Joe</td>
-      <td>Swanson</td>
-      <td>joe.swanson@yourdomain.com</td>
-      <td>8888888888</td>
-    </tr>
-    <tr>
-      <td>Cleveland</td>
-      <td>Brown</td>
-      <td>cleveland.brown@yourdomain.com</td>
-      <td>9999999999</td>
-    </tr>
-  </table>
+  </tbody>
+</table>

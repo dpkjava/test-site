@@ -1,0 +1,13 @@
+
+.card{
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(125,125,125,0.4);
+}
+.card h3{
+    text-align: center;
+}
+.card p{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}

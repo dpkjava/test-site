@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 import { Router } from '@angular/router';
-import { LoggeduserService } from '../services/loggeduser.service';
+import { LoggeduserService } from '../../services/loggeduser.service';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +11,13 @@ import { LoggeduserService } from '../services/loggeduser.service';
 })
 export class LoginComponent implements OnInit {
   invalidMsg:any = 'Please Enter valid Username and Password';
-  loginForm: FormGroup;
   submitted = false;
-  validLogin = false;
   user:any = {};
   error: any;
   constructor(private router: Router, private auth: LoggeduserService) { }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.auth.setLogout();
   }
   
@@ -26,13 +25,13 @@ export class LoginComponent implements OnInit {
 
     this.submitted = true;
     const result = this.auth.users.find(data => {
-      if ((this.user.name === data.username) && (this.user.password === data.password)) {
+      if ((this.user.name === data.email) && (this.user.password === data.password)) {
         return true;
       }
     });
     if (result) {
-      this.auth.setLogin();
-      this.auth.loginUser = result.username;
+      this.auth.loginUser = result.email;
+      sessionStorage.setItem('username', result.email);
       this.router.navigate(['/dashboard/home']);
       
     } else {

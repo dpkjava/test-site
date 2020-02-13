@@ -18,9 +18,14 @@ header{
     border: 1px solid #ccc;
     background: #fff;
     display: none;
+    z-index: 1;
 }
 .userp ul li{
     display: block;
+    border-bottom: 1px solid #ddd;
+}
+.userp ul li:last-child{
+    border: none;
 }
 .userp ul li a{
     color: #000;

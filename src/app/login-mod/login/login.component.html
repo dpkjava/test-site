@@ -10,5 +10,8 @@
         <p class="errormsg" *ngIf="error">{{invalidMsg}}</p>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
+      <div class="text-center">
+        <a [routerLink]="['/register']">Create User</a>
+      </div>
     </div>
   </div>
