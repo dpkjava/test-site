@@ -4,7 +4,7 @@
       <h1>Login</h1>        
       <form #f="ngForm" (ngSubmit)="onSubmitlogin(f)">  
         <label>Username</label>
-        <input type="text" [(ngModel)]="user.name" name="name" #u="ngModel" required>
+        <input type="text" [(ngModel)]="user.name" name="name" #u="ngModel" required autocomplete="off">
         <label>Password</label>
         <input type="password" [(ngModel)]="user.password" name="password" #p="ngModel" required>
         <p class="errormsg" *ngIf="error">{{invalidMsg}}</p>

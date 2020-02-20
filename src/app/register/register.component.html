@@ -1,0 +1,62 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h1>Sign Up</h1>        
+      <form #f="ngForm" (ngSubmit)="onSubmitsignup(f)">  
+        <div class="row">
+            <div class="col-sm-6">
+              <label>First Name</label>
+              <input type="text" [(ngModel)]="signup.firstName" required name="firstName" #fname="ngModel">
+              <p *ngIf="fname.invalid" class="errormsg">Please enter firstname</p>
+            </div>
+            <div class="col-sm-6">
+              <label>Last Name</label>
+              <input type="text" [(ngModel)]="signup.lastName" required name="lastName" #lname="ngModel">
+              <p *ngIf="lname.invalid" class="errormsg">Please enter lastname</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label>Email</label>
+              <input type="text" [(ngModel)]="signup.email" required name="email" #email="ngModel" [email]="true">
+              <p *ngIf="email.invalid" class="errormsg">Please enter valid Email Id</p>
+            </div>
+            <div class="col-sm-6">
+              <label>Phone</label>
+              <input type="text" [(ngModel)]="signup.mobile" maxlength="10" [pattern]="mobNumberPattern" required name="mobile" #mobile="ngModel">
+              <p *ngIf="mobile.invalid" class="errormsg">Please enter phone number</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label>Gender</label>
+              <select [(ngModel)]="signup.gender" name="gender">
+                <option [value]="" selected="selected">Choose...</option>
+                <option [value]="sex.value" *ngFor="let sex of gender">{{sex.key | uppercase}}</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label>Profation</label>
+              <input type="text"  [(ngModel)]="signup.profession" required name="profession" #profession="ngModel">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label>Password</label>
+              <input type="password" [(ngModel)]="signup.password" required [pattern]="passwordRegEx" name="password" #password="ngModel">
+              <p *ngIf="password.invalid" class="errormsg">Please enter Password</p>
+            </div>
+            <div class="col-sm-6">
+              <label>Confirm Password</label>
+              <input type="password" [(ngModel)]="signup.cpassword" required name="cpassword">
+              <p *ngIf="cpassword" class="errormsg">Password not matched.</p>
+            </div>
+          </div>    
+            <div class="text-center mb-3 mt-3">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+      </form>
+      <div class="text-center">
+        Already a member? <a [routerLink]="['/login']">Login</a>
+      </div>
+    </div>
+  </div>

@@ -8,9 +8,11 @@ import { AddressComponent } from './dashboard/address/address.component';
 import { LoggedinGuard } from '../app/services/loggedin.guard';
 import { UserroleGuard } from '../app/services/userrole.guard';
 import { AdduserComponent } from './dashboard/adduser/adduser.component';
+import { RegisterComponent } from './register/register.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path : 'register' , component: RegisterComponent},
   { path : 'login' , loadChildren : ()=> import ('./login-mod/login-mod.module').then(m => m.LoginModModule)},
   { path : 'dashboard', component: DashboardComponent, canActivate:[LoggedinGuard], children:[    
     {path: '', redirectTo: '/home', pathMatch: 'full'},

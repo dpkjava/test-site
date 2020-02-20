@@ -16,6 +16,7 @@ import { AddressComponent } from './dashboard/address/address.component';
 import { LeftnavigationComponent } from './dashboard/leftnavigation/leftnavigation.component';
 import { from } from 'rxjs';
 import { AdduserComponent } from './dashboard/adduser/adduser.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdduserComponent } from './dashboard/adduser/adduser.component';
     UserComponent,
     AddressComponent,
     LeftnavigationComponent,
-    AdduserComponent
+    AdduserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
